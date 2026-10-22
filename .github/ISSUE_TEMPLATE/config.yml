@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Player-side issues
+    url: https://github.com/HumanGenome/EmberNet/issues
+    about: Problems with the EmberNet app on a player's PC, such as installing, connecting or updates.
