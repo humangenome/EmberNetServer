@@ -11,6 +11,14 @@ section here cannot be released.
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-10-28
+
+### Client
+
+#### Fixed
+
+- Typing in chat no longer sets off game keys: letters no longer open the inventory, map, quests or other menus or use what your character is standing next to, Space no longer makes your character dodge, and Esc closes the chat line without opening the pause menu.
+
 ## [0.2.1] - 2026-10-22
 
 The first EmberNet release: online co-op for the free Emberville demo, played on a dedicated server. Every player in the party installs EmberNet; stock Emberville cannot connect to an EmberNet server.
