@@ -11,6 +11,20 @@ section here cannot be released.
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-10-30
+
+### Client
+
+#### Changed
+
+- The EmberNet app runs on .NET 10, replacing .NET 8, which Microsoft stops supporting on November 10, 2026.
+
+#### Fixed
+
+- Updating the app no longer leaves it closed when your Windows user folder has an accented letter, `!` or `%` in its name. If that happened to you, download `EmberNetSetup-latest.exe` from the EmberNet release page and run it once; your saved servers and settings are kept.
+- The app no longer restarts to update while you are joining a server. It waits until you are in, as it already did while Emberville was running.
+- After an update, the app comes back minimized if it was minimized or in the tray, instead of opening a window over your game.
+
 ## [0.2.2] - 2026-10-28
 
 ### Client
