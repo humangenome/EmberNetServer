@@ -11,6 +11,34 @@ section here cannot be released.
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-11-13
+
+### Server
+
+#### Added
+
+- The server download now includes EmberNet's licence and the notices for the third-party code it carries (BepInEx and the libraries it loads). The source code of UnityDoorstop 4.5.0, which the server download ships unchanged, is attached to this release.
+
+#### Removed
+
+- Test-only start switches no longer work in a normal game. They were for our automated tests, for example a player who takes no damage, and any player could turn them on by adding them to the game's start line.
+- If you run your own EmberNet server, update it to 0.2.4: on older versions any player on it could turn on these test cheats.
+
+### Client
+
+#### Added
+
+- The app and the installer now include EmberNet's licence and the notices for the third-party code they carry. The source code of UnityDoorstop 4.5.0, which the installer places in your game folder unchanged, is attached to this release.
+
+#### Changed
+
+- The app carries the November 2026 .NET 10 security update.
+
+#### Fixed
+
+- EmberNet starts on Windows builds that only partly support a newer processor safety feature. On those PCs 0.2.3 could stop with "Your Windows doesn't fully support CET". If that happened to you, download `EmberNetSetup-latest.exe` from the EmberNet release page and run it once; your saved servers and settings are kept.
+- EmberNet uses about half the processor time while it is minimized or in the tray, and Exit from the tray no longer hangs.
+
 ## [0.2.3] - 2026-10-30
 
 ### Client
