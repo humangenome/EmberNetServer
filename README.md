@@ -11,24 +11,22 @@
 
 # EmberNetServer
 
-[Emberville](https://store.steampowered.com/app/2295170/) has no multiplayer and no dedicated server. EmberNetServer runs the game as one on a Windows machine, and players join it by IP and port through the [EmberNet app](https://github.com/HumanGenome/EmberNet) or the MULTIPLAYER menu EmberNet adds to the game. This repo is for hosts; players only need the app.
+[Emberville](https://store.steampowered.com/app/2295170/) has no multiplayer. EmberNetServer runs an Emberville dedicated server on Windows, for up to 16 players. Players join it by IP with the [EmberNet app](https://github.com/HumanGenome/EmberNet).
 
 ## What it does
 
-- Runs Emberville with no screen and no graphics card
-- Saves the world every few minutes and on shutdown, and keeps an hourly backup six deep
+- Runs with no graphics card
+- Saves the world every 5 minutes and when it stops, and keeps the last 6 hourly backups
 - Runs the monsters, bosses, chests, doors, quests and story for the whole party, and moves the party between maps together
-- Takes direct connections on one UDP port
-- Optional join password, and a player limit you set (4 by default, up to 16)
-- Writes a status file and reads a commands file, so a panel or a script can see who is on and save, kick, broadcast or shut down without a login
-- Answers a status question on its game port (name, players, version, password), which the EmberNet app uses for its server list
+- Players join by IP on one UDP port
+- Password protection, and a player limit you set: 4 by default, up to 16
+- A status file shows who is on, and a commands file lets you save, kick, send a message or shut down
+- Shows up in the EmberNet app's server list with its name, players, version and lock
 - Idles at a few percent of one CPU core with nobody on it
 
-## What it does not do
+## Known limitations
 
-- **It does not ship Emberville.** You install the game files yourself; the server runs them from a folder you choose.
-- **It does not replace the player's game.** Everyone joining runs their own Emberville, with EmberNet on top.
-- **It is not an anti-cheat.** EmberNet does not police what connected players do.
+- No anti-cheat. EmberNet doesn't check what players do.
 
 ## Requirements
 
@@ -36,8 +34,8 @@
 |---|---|
 | OS | Windows 10, Windows 11, or Windows Server |
 | Game files | An Emberville installation on the host, from your own Steam copy |
-| Port | One UDP port (default `47750`), open on the host firewall and forwarded if the server sits behind NAT |
-| Hardware | No GPU required. A few MB of disk beyond the game. Plan for about 3 GB of RAM per server: in our tests a server with its world loaded used about 2.7 GB, and about 11% of one CPU core with a player fighting |
+| Port | One UDP port (`47750` by default), open in the firewall and forwarded on your router if the PC is behind one |
+| Hardware | No graphics card. A few MB of disk beyond the game. About 3 GB of RAM per server: in our tests a server with its world loaded used about 2.7 GB, and about 11% of one CPU core with a player fighting |
 
 ## Setup
 
@@ -49,9 +47,9 @@
    Emberville.exe -batchmode -nographics --emb-dedicated
    ```
 
-4. Edit `EmberNetServer\server.json` next to the game: the server name, the port, the player limit, a join password if you want one, the world's name and difficulty.
+4. Edit `EmberNetServer\server.json` next to the game: the server name, the port, the player limit, a password if you want one, the world's name and difficulty.
 5. Start the server again. The world is made on the first start and reopened on every start after.
-6. Hand players the address as `ip:port`. They add it in the EmberNet app and press Join, or type it in the game's MULTIPLAYER menu.
+6. Give players your IP and port as `ip:port`. They add it in the EmberNet app and click Join, or type it in the game's MULTIPLAYER menu.
 
 Running two servers on one machine: give each its own copy of the game folder and its own port. Each folder keeps its own settings, saves and status files in `EmberNetServer\`.
 
@@ -61,15 +59,15 @@ Running two servers on one machine: give each its own copy of the game folder an
 |---|---|---|
 | `ServerName` | `Emberville Server` | The name players see |
 | `Port` | `47750` | The UDP port players connect to |
-| `MaxPlayers` | `4` | Most players at once (1-16) |
-| `Password` | empty | Join password; empty means open |
+| `MaxPlayers` | `4` | Most players at once (1 to 16) |
+| `Password` | empty | Join password. Empty means anyone can join. |
 | `WorldName` | `Emberville World` | The world's name, used when the world is first made |
-| `Seed` | `0` | The world's seed when it is first made; `0` picks one |
+| `Seed` | `0` | The world's seed when it's first made. `0` picks one. |
 | `Difficulty` | `1` | The game's difficulty, when the world is first made |
 | `StartScene` | `TutorialArea` | The map a new world starts in |
-| `SaveEveryMinutes` | `5` | How often the world is saved (1-60) |
-| `FramesPerSecond` | `15` | How fast the server runs with players on (5-60); it idles slower with nobody on |
-| `WorkerThreads` | `2` | The engine's helper threads (0-8) |
+| `SaveEveryMinutes` | `5` | How often the world is saved, in minutes (1 to 60) |
+| `FramesPerSecond` | `15` | How fast the server runs with players on (5 to 60). It runs slower with nobody on. |
+| `WorkerThreads` | `2` | The engine's helper threads (0 to 8) |
 
 ## Status and commands
 
@@ -81,7 +79,7 @@ It reads `EmberNetServer\commands.txt` every second, runs each line, and empties
 |---|---|
 | `save` | Saves the world now |
 | `say <text>` | Shows the text to every player |
-| `kick <name>` | Removes that player |
+| `kick <name>` | Kicks that player |
 | `shutdown` | Saves and stops the server |
 
 ## Saves and backups
@@ -90,8 +88,8 @@ Everything a server owns is in `EmberNetServer\` next to the game: `server.json`
 
 ## Releases
 
-Each release attaches `EmberNetServer-<version>.zip`. Players and the server must run the same EmberNet version: the EmberNet app shows a server's version before joining and updates itself to match new releases. The changelog for both sides is [CHANGELOG.md](CHANGELOG.md).
+Each release has the server download, `EmberNetServer-<version>.zip`. Players and the server need the same network version, so update the server when a new release is out. What changed in each version is in [CHANGELOG.md](CHANGELOG.md).
 
-## Is this official?
+---
 
-No. EmberNet is an independent, fan-made project. It is not made by or affiliated with Cygnus Cross.
+EmberNet is a free, unofficial fan-made project. It's not made by or affiliated with Cygnus Cross.

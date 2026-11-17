@@ -1,12 +1,10 @@
 # Contributing to EmberNetServer
 
-Short and to the point.
-
 ## Which repo do I file against?
 
 | You are looking at | File it here |
 |---|---|
-| A running server: startup, world saving, ports, server query, configuration | [HumanGenome/EmberNetServer](https://github.com/HumanGenome/EmberNetServer/issues) |
+| A server: starting, saving the world, ports, the server list, settings | [HumanGenome/EmberNetServer](https://github.com/HumanGenome/EmberNetServer/issues) |
 | The EmberNet app: installing, connecting, the server list, updates | [HumanGenome/EmberNet](https://github.com/HumanGenome/EmberNet/issues) |
 | Not sure | Either. It gets moved. |
 

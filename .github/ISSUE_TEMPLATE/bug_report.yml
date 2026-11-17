@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for filing a bug. Please make sure this is about the EmberNet **server**, not your hosting provider's control panel, billing or support.
+        This form is for bugs in the EmberNet **server**. For your host's control panel, billing or support, contact your host.
 
         If the problem is in the **EmberNet app** on a player's PC, file it on the [EmberNet hub](https://github.com/HumanGenome/EmberNet/issues) instead.
 
@@ -37,7 +37,7 @@ body:
       label: How is this server run?
       options:
         - I run the machine myself
-        - Managed/rented hosting
+        - A rented server
     validations:
       required: true
 
