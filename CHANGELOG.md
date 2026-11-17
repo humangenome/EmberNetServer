@@ -17,13 +17,13 @@ section here cannot be released.
 
 #### Fixed
 
-- EmberNet works with the Emberville demo update of November 13, 2026 (game version 0.20.26). With that update, players on EmberNet 0.2.4 could not join a server. If you run your own EmberNet server, update it to 0.2.5 too.
+- After the Emberville demo update of Nov 13 (game version 0.20.26), players on EmberNet 0.2.4 couldn't join any server. On 0.2.5 they can join again. If you run your own EmberNet server, update it to 0.2.5 too.
 
 ### Client
 
 #### Fixed
 
-- EmberNet works with the Emberville demo update of November 13, 2026 (game version 0.20.26). With that update, EmberNet 0.2.4 showed no MULTIPLAYER button in the game, and Join in the app stopped at the game's main menu. The app updates itself when it starts.
+- After the Emberville demo update of Nov 13 (game version 0.20.26), EmberNet 0.2.4 showed no MULTIPLAYER button in the game, and Join in the app stopped at the game's main menu. Both work again in 0.2.5. The app updates itself when it starts.
 
 ## [0.2.4] - 2026-11-13
 
