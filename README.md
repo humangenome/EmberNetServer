@@ -60,7 +60,7 @@ Running two servers on one machine: give each its own copy of the game folder an
 | `ServerName` | `Emberville Server` | The name players see |
 | `Port` | `47750` | The UDP port players connect to |
 | `MaxPlayers` | `4` | Most players at once (1 to 16) |
-| `Password` | empty | Join password. Empty means anyone can join. |
+| `Password` | empty | Join password, 64 characters at most. Empty means anyone can join. |
 | `WorldName` | `Emberville World` | The world's name, used when the world is first made |
 | `Seed` | `0` | The world's seed when it's first made. `0` picks one. |
 | `Difficulty` | `1` | The game's difficulty, when the world is first made |
@@ -68,6 +68,8 @@ Running two servers on one machine: give each its own copy of the game folder an
 | `SaveEveryMinutes` | `5` | How often the world is saved, in minutes (1 to 60) |
 | `FramesPerSecond` | `15` | How fast the server runs with players on (5 to 60). It runs slower with nobody on. |
 | `WorkerThreads` | `2` | The engine's helper threads (0 to 8) |
+
+The server reads `server.json` strictly. An unknown setting, a value of the wrong kind or a broken line stops it from starting, and its log says what to fix.
 
 ## Status and commands
 

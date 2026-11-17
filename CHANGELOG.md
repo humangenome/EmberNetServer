@@ -11,6 +11,26 @@ section here cannot be released.
 
 ## [Unreleased]
 
+### Server
+
+#### Changed
+
+- A server whose `server.json` has an unknown setting, a value of the wrong kind or a broken line no longer starts on the default settings. It stops, and its log says what to fix, for example `"Pasword" is not a setting. Did you mean "Password"?` Before, a file like that opened the server with no password.
+
+#### Fixed
+
+- A connection that never finishes joining no longer holds a seat. Before, anyone could fill every seat on a server this way.
+- A password longer than 64 characters is refused when the server starts. Players could never join a server that had one.
+
+### Client
+
+#### Fixed
+
+- After a failed join with a new character, the game's main menu works again. Before, Play, Options and Exit did nothing until the game was closed.
+- EmberNet no longer stops updating itself when the connection stalls during an update.
+- EmberNet no longer installs an older version of itself if an old update file is sent to it again. Before, it took any genuine update file with a different version, older ones included.
+- The EmberNet window fits on a screen scaled to 150%.
+
 ## [0.2.5] - 2026-11-13
 
 ### Server
