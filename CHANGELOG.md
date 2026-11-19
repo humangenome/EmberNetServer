@@ -19,7 +19,7 @@ section here cannot be released.
 
 #### Fixed
 
-- A connection that never finishes joining no longer holds a seat. Before, anyone could fill every seat on a server this way.
+- A connection that never finishes joining no longer takes up a player slot. Before, anyone could fill a server this way so real players couldn't join.
 - A password longer than 64 characters is refused when the server starts. Players could never join a server that had one.
 
 ### Client
